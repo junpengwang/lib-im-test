@@ -124,7 +124,7 @@ a. 会话获取
 
 ######参数说明
 type：
-会话类型，如果是单聊，填写 TIM_C2C，如果是群聊，填写TIM_GROUP
+会话类型，如果是单聊，填写 Wild_C2C，如果是群聊，填写 Wild_GROUP
 receiver：
 会话标识，单聊情况下，receiver为对方帐号identifier，群聊情况下，receiver为群组Id
 
