@@ -1,0 +1,6 @@
+framework module WildIMLib {
+  umbrella header "WildIMLib.h"
+
+  export *
+  module * { export * }
+}
