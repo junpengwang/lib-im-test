@@ -22,7 +22,7 @@
 
 <img src="生成Token.png" width="850">
 
-App 开发都有自己的帐户系统，野狗使用 [JWT token](https://jwt.io) 结合超级密钥生成 Token 来集成 APP 用户 ID 和 昵称。在野狗帐号控制面板中进入应用中，在左侧功能栏中找到超级密钥。用户可以自行生成 token，只需符合格式约定。token 采用标准的 jwt 格式，payload部分中，必须包含的字段如下：[更多信息请参考](https://z.wilddog.com/rule/guide) 中第五节自定义 token。
+App 开发都有自己的帐户系统，野狗使用 [JWT token](https://jwt.io) 结合超级密钥生成 Token 来集成 APP 用户 ID 和 昵称。在野狗帐号控制面板中进入应用中，在左侧功能栏中找到超级密钥。用户可以自行生成 token，只需符合格式约定。token 采用标准的 jwt 格式，payload部分中，必须包含的字段如下：[更多信息请参考文档](https://z.wilddog.com/rule/guide) 中第五节自定义 token。
 
 | 字段 | 描述 |
 | --- | --- |
