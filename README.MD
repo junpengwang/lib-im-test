@@ -109,13 +109,8 @@ WildIMLib 以野狗 SDK 为基础，所以初始化之前需要一个野狗的 A
 
 ####3 登陆
 
-用户登陆野狗服务器后才能正常收发消息，登陆接口需要提供三个参数，
+用户登陆野狗服务器后才能正常收发消息，登陆接口需要提供个 token，参考新手指引第四节生成 token。
 
-userId 用户 Id，唯一表示用户身份;
-
-name 用户昵称，推送的时候需要用到;
-
-token 使用用户 id 和 野狗的超级密钥生产的 jwt token;
 ######登陆结构原型
 ````
 /**
@@ -183,7 +178,7 @@ token 使用用户 id 和 野狗的超级密钥生产的 jwt token;
 type：
 会话类型，如果是单聊，填写 Wild_C2C，如果是群聊，填写 Wild_GROUP
 receiver：
-会话标识，单聊情况下，receiver为对方帐号identifier，群聊情况下，receiver为群组Id
+会话标识，单聊情况下，receiver 为对方帐号 identifier，群聊情况下，receiver 为群组 Id
 
 ######示例
 以下示例获取对方 uid 为“10086”的单聊会话：
@@ -272,7 +267,7 @@ level : 发送图片前对图片进行压缩，level 表示压缩等级，详见
 
 ```
 /**
-*  获取聊天会话, 以同用户iOS-001的单聊为例，群聊可参见4.1节a部分
+*  获取聊天会话, 以同用户iOS-001的单聊为例。
 */
 WildConversation * c2c_conversation = [[WildManager sharedInstance] getConversation:Wild_C2C receiver:@"iOS-001"];
 
@@ -302,7 +297,7 @@ image_elem.path = @"/xxx/imgPath.jpg";
 }];
 ```
 ##### 5.3 语音消息发送
-语音消息由 WildSoundElem 定义，其中data存储语音数据，语音数据需要提供时长信息，以秒为单位，注意，一条消息只能有一个语音Elem，添加多条语音Elem时，AddElem函数返回错误1，添加不生效，另外，语音和文件elem不一定会按照添加时的顺序获取，建议逐个判断elem类型展示。
+语音消息由 WildSoundElem 定义，其中 data 存储语音数据，语音数据需要提供时长信息，以秒为单位，注意，一条消息只能有一个语音 Elem，添加多条语音 Elem 时，AddElem 函数返回错误1，添加不生效，另外，语音和文件 elem 不一定会按照添加时的顺序获取，建议逐个判断 elem 类型展示。
 
 ```
 @interface WildSoundElem : WildElem {
@@ -330,7 +325,7 @@ WildMessage * msg = [[WildMessage alloc] init];
 }];
 ```
 ###6 获取消息
-ImSDK 会在本地进行消息存储，可通过 WildConversation 方法的 getMessage 获取，此方法为异步方法，需要通过设置回调得到消息数据，对于群组，登录后可以获取漫游消息，对于C2C，开通漫游服务后可以获取漫游消息，ImSDK提供了两种方式，一种通过闭包回调，另一种通过protocol接口回调：
+ImSDK 会在本地进行消息存储，可通过 WildConversation 方法的 getMessage 获取，此方法为异步方法，需要通过设置回调得到消息数据，对于群组，登录后可以获取漫游消息，对于 C2C，开通漫游服务后可以获取漫游消息，ImSDK 提供了两种方式，一种通过闭包回调，另一种通过 protocol 接口回调：
 
 ######原型
 
@@ -343,7 +338,7 @@ ImSDK 会在本地进行消息存储，可通过 WildConversation 方法的 getM
 ######参数说明：
 count 指定获取消息的数量
 
-last 指定上次获取的最后一条消息，如果last传nil，从最新的消息开始读取
+last 指定上次获取的最后一条消息，如果 last 传 nil，从最新的消息开始读取
 
 succ 成功回调
 
@@ -403,11 +398,11 @@ for (int i = 0; i < cnt; i++) {
 ######参数解释
 type：
 
-会话类型，如果是单聊，填写 Wild_C2C，如果是群聊，填写Wild_GROUP
+会话类型，如果是单聊，填写 Wild_C2C，如果是群聊，填写 Wild_GROUP
 
 receiver：
 
-会话标识，单聊情况下，receiver为对方用户identifier，群聊情况下，receiver为群组Id
+会话标识，单聊情况下，receiver 为对方用户 identifier，群聊情况下，receiver 为群组 Id
 ######示例
 
 ```
@@ -462,7 +457,7 @@ WildConversation * conversation = [[WildManager sharedInstance] getConversation:
 
 #####10.2 已读上报
 
-当用户阅读某个会话的数据后，需要进行会话消息的已读上报，SDK根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。
+当用户阅读某个会话的数据后，需要进行会话消息的已读上报，SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。
 
 ######原型:
 
