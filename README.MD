@@ -128,7 +128,7 @@ WildIMLib 以野狗 SDK 为基础，所以初始化之前需要一个野狗的 A
 ######示例
 
 ````
-[[WildManager sharedInstance] login:uid customeToken:token userName:uid succ:^{
+[[WildManager sharedInstance] loginWithcustomeToken:token userName:uid succ:^{
                 NSLog(@"login succ);              
             } fail:^(int code, NSString *msg) {
                 NSLog(@"login failed:%@",msg);
@@ -186,7 +186,7 @@ receiver：
 ```
 WildConversation * c2c_conversation = [[WildManager sharedInstance] getConversation:Wild_C2C receiver:@"10086"];
 ```
-以下示例获取群组Id为"-KFS5puUyvyyDNsryJaY"的群聊会话：
+以下示例获取群组 Id 为"-KFS5puUyvyyDNsryJaY"的群聊会话：
 
 ```
 WildConversation * group_conversation = [[WildManager sharedInstance] getConversation:Wild_GROUP receiver:@"-KFS5puUyvyyDNsryJaY"];
@@ -1278,7 +1278,7 @@ userList ： 被邀请入群的用户列表
 ####12.2 用户退出群组
 
 触发时机：当有用户主动退群时，群组内会由系统发出通知。可以选择更新群成员列表。
-收到的消息type为 Wild_GROUP_TIPS_TYPE_QUIT_GRP。
+收到的消息 type 为 Wild_GROUP_TIPS_TYPE_QUIT_GRP。
 
 WildGroupTipsElem 参数说明：
 
